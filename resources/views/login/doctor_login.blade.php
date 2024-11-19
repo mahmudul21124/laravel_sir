@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Admin Login</title>
+    <title>Doctor Login</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
@@ -32,7 +32,7 @@
                             <div class="panel panel-default card-view mb-0">
                                 <div class="panel-heading">
                                     <div class="pull-left">
-                                        <h6 class="panel-title txt-dark">Admin Sign In</h6>
+                                        <h6 class="panel-title txt-dark">Doctor Sign In</h6>
                                         @if($errors->has('email'))
                                             <div class="alert alert-danger">{{$errors->first('email')}}</div>
                                         @endif
@@ -44,7 +44,7 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-xs-12">
                                                 <div class="form-wrap">
-                                                    <form action="{{route('admin.login')}}" method="post">
+                                                    <form action="{{route('doctor.login')}}" method="post">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label class="control-label mb-10"

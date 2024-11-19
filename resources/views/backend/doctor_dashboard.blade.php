@@ -133,7 +133,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
-                    <h3 style="text-align: center">Welcome to Admin Dashboard</h3>
+                    <h3 style="text-align: center">Welcome to Doctor Dashboard</h3>
                 </div>
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body">

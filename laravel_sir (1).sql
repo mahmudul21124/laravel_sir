@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2024 at 08:41 AM
+-- Generation Time: Nov 19, 2024 at 06:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,7 @@ CREATE TABLE `admins` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -40,8 +41,33 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Saif Jahan', 'saif@gmail.com', '$2y$10$WolPByMOSRDc9/dNZEtDMesqU9T0Z2I/xVms7POvkCEZ0fuP592eu', '2024-11-18 01:15:04', '2024-11-18 01:15:04');
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Saif Jahan', 'saif@gmail.com', '$2y$10$Mp4Nnal70T2Tan423PxTuOGZJOERWZIIhKWOfSQScSLmApnqi12yO', NULL, '2024-11-18 22:29:43', '2024-11-18 22:29:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctors`
+--
+
+CREATE TABLE `doctors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `photo` varchar(255) DEFAULT 'nophoto.jpg',
+  `status` enum('active','inactive') NOT NULL DEFAULT 'inactive',
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `name`, `email`, `password`, `photo`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'Jamil Hossain', 'jamil@gmail.com', '$2y$10$P2JK1q11wsBFhHRXdHiVfuf58K5M5DNPYMsW4zb07foTwy4Xnm4DC', 'nophoto.jpg', 'inactive', NULL, '2024-11-18 22:57:27', '2024-11-18 22:57:27');
 
 -- --------------------------------------------------------
 
@@ -76,11 +102,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_11_18_063523_create_admins_table', 2);
+(13, '2014_10_12_000000_create_users_table', 1),
+(14, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(15, '2019_08_19_000000_create_failed_jobs_table', 1),
+(16, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(17, '2024_11_18_063523_create_admins_table', 1),
+(18, '2024_11_19_041822_create_doctors_table', 1);
 
 -- --------------------------------------------------------
 
@@ -131,13 +158,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Mahmudul Haque', 'admin@gmail.com', NULL, '$2y$10$CgAYj/W8kNfUvujfBNvkS.mHCT43UOmUFcXh.fJFrTzClQd2ANHsC', NULL, '2024-11-17 21:25:17', '2024-11-17 21:25:17');
-
---
 -- Indexes for dumped tables
 --
 
@@ -147,6 +167,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
+-- Indexes for table `doctors`
+--
+ALTER TABLE `doctors`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `doctors_email_unique` (`email`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -193,6 +220,12 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `doctors`
+--
+ALTER TABLE `doctors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -202,7 +235,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -214,7 +247,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
