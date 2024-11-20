@@ -7,7 +7,7 @@
     <title>Admin dashboard</title>
 
     <!-- CSS -->
-    @include('backend.layouts.css_file')
+    @yield('css')
 
 </head>
 
@@ -52,7 +52,7 @@
     <!-- /#wrapper -->
 
     <!-- JavaScript -->
-    @include('backend.layouts.js_file')
+    @yield('js')
     
 </body>
 

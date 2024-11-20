@@ -129,19 +129,11 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('dist/img/user1.png')}}" alt="user_auth" class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
             <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                <li><a href=""><li><a href="#">{{Auth()->guard()->user()->name}} </a></li></a></li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-credit-card-alt"></i> my balance</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
+                
                 <li>
                     <form action="{{route('doctor.logout')}}" method="post">
                         @csrf

@@ -26,10 +26,12 @@ class DatabaseSeeder extends Seeder
         //         'password' => Hash::make('admin123')
         //     ]);
 
-        \App\Models\Doctor::create([
-            'name' => 'Jamil Hossain',
-            'email' => 'jamil@gmail.com',
-            'password' => Hash::make('admin123')
-        ]);
+        // \App\Models\Doctor::create([
+        //     'name' => 'Jamil Hossain',
+        //     'email' => 'jamil@gmail.com',
+        //     'password' => Hash::make('admin123')
+        // ]);
+
+        \App\Models\Specialist::factory(50)->create();
     }
 }
