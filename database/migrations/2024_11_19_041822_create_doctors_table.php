@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
+            $table->integer('specialist_id');
             $table->string('name', 100);
             $table->string('email', 50)->unique();
             $table->string('password');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->rememberToken();
             $table->timestamps();

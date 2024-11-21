@@ -40,6 +40,13 @@
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
                     <div class="pull-left">
+                        @if(session('msg'))
+                            <div class="alert alert-success">{{session('msg')}}</div>
+                        @elseif(session('dlt'))
+                            <div class="alert alert-danger">{{session('dlt')}}</div>
+                            @elseif(session('upt'))
+                            <div class="alert alert-info">{{session('upt')}}</div>
+                        @endif
                         <h6 class="panel-title txt-dark">Export</h6>
                     </div>
                     <div class="clearfix"></div>
@@ -48,6 +55,7 @@
                     <div class="panel-body">
                         <div class="table-wrap">
                             <div class="table-responsive">
+                            <a href="{{route('specialist.create')}}" class="btn btn-success pull-right">Add new</a>
                                 <table id="example" class="table table-hover display  pb-30">
                                     <thead>
                                         <tr>
@@ -57,6 +65,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
+
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
@@ -72,11 +81,19 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->details}}</td>
-                                            <td>Edit | Show| Delete</td>
+                                            <td>
+                                                <a href="{{route('specialist.edit', $item->id)}}" class="btn btn-success btn-anim"><i class="fa fa-pencil-square-o"></i><span class="btn-text">EDIT</span></a>    
+                                            | Show|
+                                                <form action="{{route('specialist.destroy', $item->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                <button name="submit" type="submit" class="btn btn-danger btn-anim"><i class="fa fa-trash-o"></i><span class="btn-text">DELETE</span></button>
+                                                </form>
+                                                </td>
                                         </tr>
-                                        
                                         @endforeach
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
