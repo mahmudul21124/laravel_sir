@@ -43,7 +43,7 @@
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
                     <div class="pull-left">
-                        <h6 class="panel-title txt-dark">New Specialist</h6>
+                        <h6 class="panel-title txt-dark">Edit Specialist</h6>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -52,15 +52,16 @@
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="form-wrap">
-                                    <form class="form-horizontal" method="post" action="{{route('specialist.store')}}">
+                                    <form class="form-horizontal" method="post" action="{{route('specialist.update', $specialist->id)}}">
                                         @csrf
+                                        @method('PUT')
                                         <div class="form-group">
                                             <label for="exampleInputuname_4"
                                                 class="col-sm-3 control-label">Specialist*</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="exampleInputuname_4"
-                                                        name="specialist" placeholder="Enter Specialist">
+                                                        name="specialist" value="{{$specialist->name}}" placeholder="Enter Specialist">
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -71,7 +72,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <textarea name="details" id="" class="form-control"
-                                                        placeholder="Enter details" rows="10"></textarea>
+                                                        placeholder="Enter details" rows="10">{{$specialist->details}}</textarea>
                                                     <div class="input-group-addon"><i class="icon-envelope-open"></i>
                                                     </div>
                                                 </div>
@@ -80,7 +81,7 @@
 
                                         <div class="form-group mb-0">
                                             <div class="col-sm-offset-3 col-sm-9">
-                                                <button type="submit" class="btn btn-info ">Add</button>
+                                                <button type="submit" class="btn btn-info ">Update</button>
                                             </div>
                                         </div>
                                     </form>

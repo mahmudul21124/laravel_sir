@@ -56,13 +56,13 @@
                     <div class="panel-body">
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <a href="{{route('specialist.create')}}" class="btn btn-success pull-right">Add new</a>
+                                <a href="{{route('doctor.create')}}" class="btn btn-success pull-right">Add new</a>
                                 <table id="example" class="table table-hover display  pb-30">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Specialists Name</th>
-                                            <th>Details</th>
+                                            <th>Doctor Name</th>
+                                            <th>Specialist</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -70,8 +70,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Specialists Name</th>
-                                            <th>Details</th>
+                                            <th>Doctor Name</th>
+                                            <th>Specialist</th>
                                             <th style="width: 300px;">Action</th>
                                         </tr>
                                     </tfoot>
@@ -81,13 +81,14 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->details}}</td>
+                                            <td>{{$item->specialist->name}}</td>
                                             <td>
 
 
                                                 <form action="{{route('specialist.destroy', $item->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
+
                                                     <a href="{{route('specialist.edit', $item->id)}}"
                                                         class="btn btn-sm btn-success btn-anim"><i
                                                             class="fa fa-pencil-square-o"></i><span
@@ -102,6 +103,7 @@
                                                         class="btn btn-sm btn-danger btn-anim"><i
                                                             class="fa fa-trash-o"></i><span
                                                             class="btn-text">DELETE</span></button>
+                                                            
                                                 </form>
                                             </td>
                                         </tr>

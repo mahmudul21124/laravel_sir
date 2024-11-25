@@ -20,10 +20,10 @@
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr1"><i class="icon-basket-loaded mr-10"></i>Doctor<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
             <ul id="ecom_dr1" class="collapse collapse-level-1">
                 <li>
-                    <a href="{{route('specialist.index')}}">All Doctors</a>
+                    <a href="{{route('doctor.index')}}">All Doctors</a>
                 </li>
                 <li>
-                    <a href="{{route('specialist.create')}}">New Doctor</a>
+                    <a href="{{route('doctor.create')}}">New Doctor</a>
                 </li>
                 
             </ul>
