@@ -51,9 +51,9 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                {{$specialist->id}} <br>
-                                {{$specialist->name}} <br>
-                                {{$specialist->details}}
+                                {{$doctor->id}} <br>
+                                {{$doctor->name}} <br>
+                                <img src="{{asset($doctor->photo)}}" alt="" width="300">
                             </div>
                         </div>
                     </div>

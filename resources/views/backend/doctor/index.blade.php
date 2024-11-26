@@ -41,6 +41,8 @@
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
                     <div class="pull-left">
+
+                        <!-- Create, Edit, Delete massage -->
                         @if(session('msg'))
                         <div class="alert alert-success">{{session('msg')}}</div>
                         @elseif(session('dlt'))
@@ -48,6 +50,7 @@
                         @elseif(session('upt'))
                         <div class="alert alert-info">{{session('upt')}}</div>
                         @endif
+
                         <h6 class="panel-title txt-dark">Export</h6>
                     </div>
                     <div class="clearfix"></div>
@@ -63,6 +66,7 @@
                                             <th>ID</th>
                                             <th>Doctor Name</th>
                                             <th>Specialist</th>
+                                            <th>Photo</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -72,6 +76,7 @@
                                             <th>ID</th>
                                             <th>Doctor Name</th>
                                             <th>Specialist</th>
+                                            <th>Photo</th>
                                             <th style="width: 300px;">Action</th>
                                         </tr>
                                     </tfoot>
@@ -82,24 +87,25 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->specialist->name}}</td>
+                                            <td><img src="{{asset($item->photo)}}" alt="" width="100"></td>
                                             <td>
 
 
-                                                <form action="{{route('specialist.destroy', $item->id)}}" method="post">
+                                                <form action="{{route('doctor.destroy', $item->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
 
-                                                    <a href="{{route('specialist.edit', $item->id)}}"
+                                                    <a href="{{route('doctor.edit', $item->id)}}"
                                                         class="btn btn-sm btn-success btn-anim"><i
                                                             class="fa fa-pencil-square-o"></i><span
                                                             class="btn-text">EDIT</span></a>
                                                     |
-                                                    <a href="{{route('specialist.show', $item->id)}}"
+                                                    <a href="{{route('doctor.show', $item->id)}}"
                                                         class="btn btn-sm btn-primary btn-anim"><i
                                                             class="fa fa-sign-out"></i><span
                                                             class="btn-text">Show</span></a>
                                                     |
-                                                    <button name="submit" type="submit"
+                                                    <button name="submit" type="submit" onclick="return confirm('Sure Want Delete?')"
                                                         class="btn btn-sm btn-danger btn-anim"><i
                                                             class="fa fa-trash-o"></i><span
                                                             class="btn-text">DELETE</span></button>

@@ -62,9 +62,9 @@
                                                     <input type="text" class="form-control" id="exampleInputuname_4"
                                                         name="name" value="{{old('name')}}" placeholder="Enter Doctor name">
 
-                                                        @error('name') <div class="alert alert-danger">{{$message}}</div>
-                                                        @enderror 
-                                                        
+                                                    @error('name') <div class="alert alert-danger">{{$message}}</div>
+                                                    @enderror
+
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -79,10 +79,12 @@
                                                     <option value="">Select One</option>
 
                                                     @foreach ($specialists as $specialist)
-                                                    <option value="{{$specialist->id}}" @selected(old('specialist') == $specialist->id) >{{$specialist->name}}</option>
+                                                    <option value="{{$specialist->id}}" @selected(old('specialist')==$specialist->id) >{{$specialist->name}}</option>
                                                     @endforeach
 
                                                 </select>
+                                                @error('specialist') <div class="alert alert-danger">{{$message}}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -93,6 +95,8 @@
                                                 <div class="input-group">
                                                     <input type="email" class="form-control" id=""
                                                         name="email" value="{{old('email')}}" placeholder="Enter Email address">
+                                                    @error('email') <div class="alert alert-danger">{{$message}}</div>
+                                                    @enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -105,6 +109,8 @@
                                                 <div class="input-group">
                                                     <input type="password" class="form-control" id="exampleInputuname_4"
                                                         name="password" placeholder="Enter password">
+                                                    @error('password') <div class="alert alert-danger">{{$message}}</div>
+                                                    @enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -117,6 +123,8 @@
                                                 <div class="input-group">
                                                     <input type="password" class="form-control" id="exampleInputuname_4"
                                                         name="password_confirmation" placeholder="Repeat password">
+                                                    @error('password_confirmation') <div class="alert alert-danger">{{$message}}</div>
+                                                    @enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -129,6 +137,8 @@
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" id="exampleInputuname_4"
                                                         name="photo">
+                                                    @error('photo') <div class="alert alert-danger">{{$message}}</div>
+                                                    @enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -137,14 +147,16 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">status</label>
                                             <div class="form-control">
-                                                <input  type="radio" name="status" value="active" @if(old('status') == 'active') checked @endif >
+                                                <input type="radio" name="status" value="active" @if(old('status')=='active' ) checked @endif>
                                                 <label for="radio1">
                                                     Active
                                                 </label>
-                                                <input  type="radio" name="status" value="inactive" @if(old('status') == 'inactive') checked @endif>
+                                                <input type="radio" name="status" value="inactive" @if(old('status')=='inactive' ) checked @endif>
                                                 <label for="radio2">
                                                     Inactive
                                                 </label>
+                                                @error('status') <div class="alert alert-danger">{{$message}}</div>
+                                                @enderror
                                             </div>
 
                                         </div>
