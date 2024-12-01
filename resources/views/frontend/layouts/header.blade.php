@@ -12,66 +12,11 @@
                     <div class="rr-header-main-menu">
                         <nav class="rr-main-menu-content text-end">
                             <ul>
-                                <li class="has-dropdown">
-                                    <a href="index.html">Home</a>
-                                    <div class="rr-submenu submenu has-homemenu">
-                                        <div class="row gx-6 row-cols-1 row-cols-md-2 row-cols-xl-4">
-                                            <div class="col homemenu">
-                                                <div class="homemenu-thumb mb-15">
-                                                    <img src="assets/img/menu/home-1.jpg" alt="img">
-                                                    <div class="homemenu-btn">
-                                                        <a class="rr-menu-btn" href="index.html">Home 01</a>
-                                                    </div>
-                                                </div>
-                                                <div class="homemenu-content text-center">
-                                                    <h4 class="homemenu-title">
-                                                        <a href="index.html">Home 01</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            <div class="col homemenu">
-                                                <div class="homemenu-thumb mb-15">
-                                                    <img src="assets/img/menu/home-2.jpg" alt="img">
-                                                    <div class="homemenu-btn">
-                                                        <a class="rr-menu-btn" href="index-2.html">Home 02</a>
-                                                    </div>
-                                                </div>
-                                                <div class="homemenu-content text-center">
-                                                    <h4 class="homemenu-title">
-                                                        <a href="index-2.html">Home 02</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            <div class="col homemenu">
-                                                <div class="homemenu-thumb mb-15">
-                                                    <img src="assets/img/menu/home-3.jpg" alt="img">
-                                                    <div class="homemenu-btn">
-                                                        <a class="rr-menu-btn" href="index-3.html">Home 03</a>
-                                                    </div>
-                                                </div>
-                                                <div class="homemenu-content text-center">
-                                                    <h4 class="homemenu-title">
-                                                        <a href="index-3.html">Home 03</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            <div class="col homemenu">
-                                                <div class="homemenu-thumb mb-15">
-                                                    <img src="assets/img/menu/home-4.jpg" alt="img">
-                                                    <div class="homemenu-btn">
-                                                        <a class="rr-menu-btn" href="index-4.html">Home 04</a>
-                                                    </div>
-                                                </div>
-                                                <div class="homemenu-content text-center">
-                                                    <h4 class="homemenu-title">
-                                                        <a href="index-3.html">Home 04</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <li>
+                                    <a href="{{route('home')}}">Home</a>
+                                    
                                 </li>
-                                <li><a href="about.html">about us</a></li>
+                                <li><a href="{{route('about')}}">about us</a></li>
                                 <li class="has-dropdown">
                                     <a href="service.html">Service</a>
                                     <ul class="submenu rr-submenu">
@@ -111,7 +56,7 @@
                             <button class="search-open-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                         <div class="rr-header-btn d-none d-md-block">
-                            <a class="rr-btn rr-header-spc" href="contact.html"><span>Make Appointment <i
+                            <a class="rr-btn rr-header-spc" href="{{route('appointment.create')}}"><span>Make Appointment <i
                                         class="fa-sharp fa-solid fa-plus"></i></span></a>
                         </div>
                         <div class="rr-header-bar d-xl-none">
