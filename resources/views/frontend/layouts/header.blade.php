@@ -56,7 +56,7 @@
                             <button class="search-open-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                         <div class="rr-header-btn d-none d-md-block">
-                            <a class="rr-btn rr-header-spc" href="{{route('appointment.create')}}"><span>Make Appointment <i
+                            <a class="rr-btn rr-header-spc" href="{{route('frontend_appointment.create')}}"><span>Make Appointment <i
                                         class="fa-sharp fa-solid fa-plus"></i></span></a>
                         </div>
                         <div class="rr-header-bar d-xl-none">
