@@ -30,7 +30,21 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // Department::updateOrCreate(['id' => $request->id],
+        //     ['name' => $request->name, 'details' => $request->details]);
+
+        // return response()->json(['success', 'done']);
+
+
+        $n = new Department;
+
+        $n = $request->name;
+        $n = $request->details;
+
+        $n->save();
+
+        return response()->json(['success', 'done']);
     }
 
     /**
